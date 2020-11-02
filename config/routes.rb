@@ -2,5 +2,6 @@ Rails.application.routes.draw do
   resources :followings
   resources :opinions
   resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :auth, only: [:new, :create, :destroy]
+
 end
