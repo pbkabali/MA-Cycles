@@ -1,0 +1,9 @@
+<nav class="nav">
+      <% if user_signed_in? %>
+        <%= home_nav_link(page) %>
+        <%= profile_nav_link(page) %>
+        <%= people_nav_link(page) %>
+        <h3><%= session[:username] %></h3>
+        <%= link_to 'Sign out', auth_path(session[:user_id]), method: :delete %>
+      <% end %>
+    </nav>

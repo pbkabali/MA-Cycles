@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'opinions#index'
+  
   resources :followings
   resources :opinions
   resources :users

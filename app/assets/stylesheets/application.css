@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+ .menu-item-selected {
+   background-color: red;
+   text-decoration: none;
+   font-weight: bold;
+ }
+
+ .menu-item {
+  font-size: large;
+  padding: 8px;
+}
+
+.nav {
+  display: flex;
+  background-color: aquamarine;
+  flex-direction: column;
+  width: 16%;
+  height: 100vh;
+  padding
+}
+
+.flex {
+  display: flex
+}

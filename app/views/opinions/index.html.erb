@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
+<main class='main flex'>
+  <%= render 'nav', page: 'home' %>
+  <div class='content'>
+    <%= render 'header', notice: notice %>
+    <div>
+      <h1>Opinions</h1>
 
-<h1>Opinions</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Authorid</th>
+            <th>Text</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Authorid</th>
-      <th>Text</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tbody>
+          <% @opinions.each do |opinion| %>
+            <tr>
+              <td><%= opinion.AuthorId %></td>
+              <td><%= opinion.Text %></td>
+              <td><%= link_to 'Show', opinion %></td>
+              <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
+              <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
 
-  <tbody>
-    <% @opinions.each do |opinion| %>
-      <tr>
-        <td><%= opinion.AuthorId %></td>
-        <td><%= opinion.Text %></td>
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <br>
 
-<br>
-
-<%= link_to 'New Opinion', new_opinion_path %>
+      <%= link_to 'New Opinion', new_opinion_path %>
+    </div>
+  </div>
+</main>

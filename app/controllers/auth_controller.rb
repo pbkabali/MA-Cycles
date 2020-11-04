@@ -7,12 +7,20 @@ class AuthController < ApplicationController
 
     respond_to do |format|
       if @user
-        session[:user_name] = @user.Username
+        session[:username] = @user.Username
         session[:user_id] = @user.id
         format.html { redirect_to user_path(@user.id), notice: 'successfully logged in' }
       else
-        format.html { redirect_to new_session_path, notice: 'User not found!' }
+        format.html { redirect_to new_auth_path, notice: 'User not found!' }
       end
+    end
+  end
+
+  def destroy
+    session[:username] = nil
+    session[:user_id] = nil
+    respond_to do |format|
+      format.html { redirect_to new_auth_path, notice: 'Successfuly logged out' }
     end
   end
 

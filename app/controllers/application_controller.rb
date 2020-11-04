@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_login
-    return if helpers.user_sign_in?
+    return if helpers.user_signed_in?
 
     respond_to do |format|
       format.html { redirect_to new_auth_path, notice: 'You must be logged in to access this section' }
