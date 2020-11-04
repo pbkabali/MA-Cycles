@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.all.order('created_at DESC')
+    @opinions = Opinion.all.includes(:author).order('created_at DESC')
     @users = User.all - helpers.current_user.following - [helpers.current_user]
   end
 
