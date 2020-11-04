@@ -7,6 +7,6 @@ class Following < ApplicationRecord
   private
 
   def cannot_follow_self
-    errors.add(:receiver_id, 'You cannot follow yourself.') if follower == followed
+    errors.add(:followed, 'You cannot follow yourself.') if follower == followed
   end
 end
