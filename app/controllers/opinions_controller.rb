@@ -5,6 +5,7 @@ class OpinionsController < ApplicationController
   def index
     @opinion = Opinion.new
     @opinions = Opinion.all.order('created_at DESC')
+    @users = User.all - helpers.current_user.following - [helpers.current_user]
   end
 
   # GET /opinions/1

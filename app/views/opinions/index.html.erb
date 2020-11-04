@@ -2,44 +2,45 @@
   <%= render 'nav', page: 'home' %>
   <div class='content'>
     <%= render 'header', notice: notice %>
-    <div>
-      <h2>Say Something</h2>
+    <div class='right-pane flex'>
+      <div class='home-opinions'>
+        <h2>Say Something</h2>
 
-      <%= render 'form', opinion: @opinion %>
+        <%= render 'form', opinion: @opinion %>
 
-      <h2>Latest posts</h2>
+        <h2>Latest posts</h2>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Authorid</th>
-            <th>Text</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @opinions.each do |opinion| %>
+        <table>
+          <thead>
             <tr>
-              <td><%= opinion.AuthorId %></td>
-              <td><%= opinion.Text %></td>
-              <td><%= link_to 'Show', opinion %></td>
-              <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-              <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <th>Authorid</th>
+              <th>Text</th>
+              <th colspan="3"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
 
-      <br>
+          <tbody>
+            <% @opinions.each do |opinion| %>
+              <tr>
+                <td><%= opinion.AuthorId %></td>
+                <td><%= opinion.Text %></td>
+                <td><%= link_to 'Show', opinion %></td>
+                <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
+                <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <%= link_to 'New Opinion', new_opinion_path %>
-    </div>
+        <br>
 
-    <div>
+        <%= link_to 'New Opinion', new_opinion_path %>
+      </div>
 
-    <h2>Who to follow</h2>
-    <%= render 'form', opinion: @opinion %>
+      <div>
+        <h2>Who to follow</h2>
+        <%= render 'users' %>
+      </div>
     </div>
   </div>
 </main>
