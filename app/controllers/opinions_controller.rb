@@ -4,7 +4,7 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.all
+    @opinions = Opinion.all.order('created_at DESC')
   end
 
   # GET /opinions/1
