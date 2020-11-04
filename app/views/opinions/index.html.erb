@@ -3,7 +3,11 @@
   <div class='content'>
     <%= render 'header', notice: notice %>
     <div>
-      <h1>Opinions</h1>
+      <h2>Say Something</h2>
+
+      <%= render 'form', opinion: @opinion %>
+
+      <h2>Latest posts</h2>
 
       <table>
         <thead>
@@ -30,6 +34,12 @@
       <br>
 
       <%= link_to 'New Opinion', new_opinion_path %>
+    </div>
+
+    <div>
+
+    <h2>Who to follow</h2>
+    <%= render 'form', opinion: @opinion %>
     </div>
   </div>
 </main>

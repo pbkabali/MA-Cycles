@@ -1,9 +1,9 @@
 class OpinionsController < ApplicationController
   before_action :set_opinion, only: [:show, :edit, :update, :destroy]
 
-  # GET /opinions
-  # GET /opinions.json
+
   def index
+    @opinion = Opinion.new
     @opinions = Opinion.all
   end
 
@@ -24,11 +24,11 @@ class OpinionsController < ApplicationController
   # POST /opinions
   # POST /opinions.json
   def create
-    @opinion = Opinion.new(opinion_params)
+    @opinion = Opinion.new(AuthorId: session[:user_id], Text: opinion_params[:Text])
 
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
+        format.html { redirect_to opinions_path, notice: 'Opinion was successfully created.' }
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class OpinionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.require(:opinion).permit(:AuthorId, :Text)
+      params.require(:opinion).permit(:Text)
     end
 end
