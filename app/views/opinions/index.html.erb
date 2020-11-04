@@ -13,20 +13,25 @@
         <table>
           <thead>
             <tr>
-              <th>Authorid</th>
+              <th>Photo</th>
+              <th>Name</th>
               <th>Text</th>
-              <th colspan="3"></th>
+              <th colspan="1"></th>
             </tr>
           </thead>
 
           <tbody>
             <% @opinions.each do |opinion| %>
               <tr>
-                <td><%= opinion.AuthorId %></td>
+                <td><%= opinion.author.Photo %></td>
+                <td><%= opinion.author.FullName %></td>
                 <td><%= opinion.Text %></td>
-                <td><%= link_to 'Show', opinion %></td>
-                <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-                <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                  <%if current_user_is_author?(opinion)%>
+                    <%= link_to 'Edit', edit_opinion_path(opinion)%>
+                    <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%end%>
+                </td>
               </tr>
             <% end %>
           </tbody>

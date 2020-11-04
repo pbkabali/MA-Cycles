@@ -31,4 +31,8 @@ module ApplicationHelper
   def user_signed_in?
     true if session[:user_id]
   end
+
+  def current_user_is_author?(opinion)
+    opinion.AuthorId == session[:user_id]
+  end
 end
