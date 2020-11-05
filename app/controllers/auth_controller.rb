@@ -9,7 +9,7 @@ class AuthController < ApplicationController
       if @user
         session[:username] = @user.Username
         session[:user_id] = @user.id
-        format.html { redirect_to user_path(@user.id), notice: 'successfully logged in' }
+        format.html { redirect_to opinions_path, notice: 'successfully logged in' }
       else
         format.html { redirect_to new_auth_path, notice: 'User not found!' }
       end

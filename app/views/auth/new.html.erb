@@ -1,18 +1,20 @@
+<%= render 'header'%>
 <p id="notice"><%= notice %></p>
+<div class='flex signin-div'>
+  <h1>Sign in</h1>
 
-<h1>Sign in</h1>
+  <%= form_with(url: auth_index_path, local: true) do |form| %>
+    <%= form.fields_for :auth do |f| %>
+      <div class="field">
+        <%= f.label :Username %>
+        <%= f.text_field :Username %>
+      </div>
+    <% end %>
 
-<%= form_with(url: auth_index_path, local: true) do |form| %>
-  <%= form.fields_for :auth do |f| %>
-    <div class="field">
-      <%= f.label :Username %>
-      <%= f.text_field :Username %>
+    <div class="actions">
+      <%= form.submit "Sign in" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit "Sign in" %>
-  </div>
-<% end %>
-
-<%= link_to 'Sign up', new_user_path %>
+  <%= link_to 'Sign up', new_user_path %>
+</div>
