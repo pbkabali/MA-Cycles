@@ -1,5 +1,12 @@
 .header {
   background-color: var(--theme-color1);
   height: 11vh;
-  margin-top: 0px;
+  padding-left: 5px;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-div {
+  align-items: center;
 }
