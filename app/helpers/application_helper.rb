@@ -37,19 +37,19 @@ module ApplicationHelper
   end
 
   def avatar_url(email)
-    if email
+    if email == nil or email.empty?
+      "default_avatar.jpg"
+    else
       gravatar_id = Digest::MD5.hexdigest(email.downcase)
       "http://gravatar.com/avatar/#{gravatar_id}.png"
-    else
-      "default_avatar.jpg"
     end
   end
 
   def cover_image_url(link)
-    if link
-      link
-    else
+    if link == nil or link.empty?
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_9hWwp_Cwja6q3mq_WPDmJoSI4NEnHDaqKg&usqp=CAU'
+    else
+      link
     end
   end
 
