@@ -59,6 +59,11 @@
           <div class='profile-picture'>
             <%= image_tag(avatar_url(@user.Photo), :class =>'user_avatar')%>
             <p class='author color-auto'><%=@user.FullName%></p>
+            <%if following?(@user)%>
+              <%= button_to 'Unfollow', following_path(id: @user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+            <%else%>
+              <%= button_to 'Follow', followings_path(id: @user.id), method: 'post', class: 'follow-btn' %>
+            <%end%>
           </div>
           <div class='flex mini-profile-top flex lower-margin'>
             <div class='mini-profile-following'>

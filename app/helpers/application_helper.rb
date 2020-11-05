@@ -52,4 +52,8 @@ module ApplicationHelper
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_9hWwp_Cwja6q3mq_WPDmJoSI4NEnHDaqKg&usqp=CAU'
     end
   end
+
+  def following?(user)
+    current_user.following.include?(user)
+  end
 end
