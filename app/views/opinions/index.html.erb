@@ -13,14 +13,13 @@
           </div>
           <div class='latest-posts white-area'>
             <div class='latest-posts-header'>
-              <h2>Latest posts</h2>
+              <h2 class='lower-margin'>Latest posts</h2>
             </div>
             <table>
               <thead>
                 <tr>
-                  <th>Photo</th>
-                  <th>Name</th>
-                  <th>Text</th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
                   <th colspan="1"></th>
                 </tr>
               </thead>
@@ -28,9 +27,14 @@
               <tbody>
                 <% @opinions.each do |opinion| %>
                   <tr>
-                    <td><%= opinion.author.Photo %></td>
-                    <td><%= opinion.author.FullName %></td>
-                    <td><%= opinion.Text %></td>
+                    <td><%= image_tag(avatar_url(opinion.author.Photo), :class =>'avatar')%></td>
+                    <td>
+                      <div>
+                        <p class='author color-auto'><%= opinion.author.FullName %></p>
+                        <p><%= opinion.Text %></p>
+                      </div>
+                    </td>
+                    
                     <td>
                       <%if current_user_is_author?(opinion)%>
                         <%= link_to 'Edit', edit_opinion_path(opinion)%>
@@ -49,7 +53,7 @@
       </div>
 
       <div class='who-to-follow'>
-        <h2>WHO TO FOLLOW</h2>
+        <h2 class='lower-margin'>WHO TO FOLLOW</h2>
         <%= render 'users' %>
       </div>
     </div>

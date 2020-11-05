@@ -1,10 +1,10 @@
 <nav class="nav">
   <div class='mini-profile nav-link-margin'>
-    <div class='mini-profile-top'>
-     <span><%=current_user.Photo%></span>
+    <div class='mini-profile-top flex'>
+     <span><%= image_tag(avatar_url(current_user.Photo), :class =>'user_avatar')%></span>
      <span><%=current_user.FullName%></span>
     </div>
-    <div class='mini-profile-bottom flex'>
+    <div class='mini-profile-top flex'>
       <div class='mini-profile-following'>
         <h2><%=current_user.following.count%></h2>
         <p>Following</p>

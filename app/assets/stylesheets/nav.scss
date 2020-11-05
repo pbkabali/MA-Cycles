@@ -23,6 +23,21 @@
  height: 20%;
 }
 
+.mini-profile-top {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user_avatar {
+  width: 100%;
+  height: auto;
+}
+
+.mini-profile-following {
+  text-align: center;
+  margin-top: 10px;;
+}
+
 .nav-link-margin {
   margin-left: 8px;
 }

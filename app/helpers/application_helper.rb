@@ -35,4 +35,13 @@ module ApplicationHelper
   def current_user_is_author?(opinion)
     opinion.AuthorId == session[:user_id]
   end
+
+  def avatar_url(email)
+    if email
+      gravatar_id = Digest::MD5.hexdigest(email.downcase)
+      "http://gravatar.com/avatar/#{gravatar_id}.png"
+    else
+      "default_avatar.jpg"
+    end
+  end
 end
