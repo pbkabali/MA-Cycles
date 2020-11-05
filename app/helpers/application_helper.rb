@@ -44,4 +44,12 @@ module ApplicationHelper
       "default_avatar.jpg"
     end
   end
+
+  def cover_image_url(link)
+    if link
+      link
+    else
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_9hWwp_Cwja6q3mq_WPDmJoSI4NEnHDaqKg&usqp=CAU'
+    end
+  end
 end

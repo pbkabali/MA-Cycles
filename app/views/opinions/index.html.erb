@@ -4,12 +4,13 @@
     <%= render 'header'%>
     <div class='flex'>
       <div class='home-opinions'>
+      <p id="notice"><%= notice %></p>
         <div class='posts-header'>
           <h2>POSTS</h2>
         </div>
         <div class='posts-area'>
           <div class='new-post white-area'>
-            <%= render 'form', opinion: @opinion %>
+            <%= render 'opinion_form', opinion: @opinion %>
           </div>
           <div class='latest-posts white-area'>
             <div class='latest-posts-header'>
@@ -46,8 +47,6 @@
               </tbody>
             </table>
             <br>
-
-            <%= link_to 'New Opinion', new_opinion_path %>
           </div>
         </div>
       </div>

@@ -11,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @opinion = Opinion.new
+    @opinions = @user.opinions.order('created_at DESC')
+    @users = @user.followers 
   end
 
   # GET /users/new
