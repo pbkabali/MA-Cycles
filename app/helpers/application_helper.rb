@@ -56,4 +56,8 @@ module ApplicationHelper
   def following?(user)
     current_user.following.include?(user)
   end
+
+  def liking?(opinion)
+    current_user.liked_opinions.include?(opinion)
+  end
 end

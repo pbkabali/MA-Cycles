@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :following_relationships, foreign_key: 'FollowerId', class_name: 'Following', dependent: :destroy
   has_many :following, through: :following_relationships, source: :followed
 
+  has_many :likes
+  has_many :liked_opinions, through: :likes, source: :opinion
 end

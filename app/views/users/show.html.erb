@@ -25,6 +25,7 @@
                   <th colspan="1"></th>
                   <th colspan="1"></th>
                   <th colspan="1"></th>
+                  <th colspan="1"></th>
                 </tr>
               </thead>
 
@@ -43,6 +44,15 @@
                       <%if current_user_is_author?(opinion)%>
                         <%= link_to 'Edit', edit_opinion_path(opinion)%>
                         <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%end%>
+                    </td>
+                    <td>
+                      <% likes_count = opinion.likes.count%>
+                      <p><%= likes_count%> Like<%= likes_count == 1? '' : 's'%></p>
+                      <%if liking?(opinion)%>
+                        <%= button_to 'Dislike', like_path(id: opinion.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+                      <%else%>
+                        <%= button_to 'Like', likes_path(id: opinion.id), method: 'post', class: 'follow-btn' %>
                       <%end%>
                     </td>
                   </tr>
