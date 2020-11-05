@@ -2,3 +2,63 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.right-pane {
+  width: 100%;
+  padding-top: 0px;
+}
+
+.who-to-follow {
+  width: 25%;
+  border-left: 2px solid var(--theme-color7);
+  height: 89vh;
+  padding: 25px;
+}
+
+.home-opinions {
+  flex-grow: 1;
+  padding-top: 0px;
+}
+
+.white-area {
+  background-color: var(--theme-color4);
+  border-radius: 5px;
+  margin-bottom: 25px;
+  padding: 20px;
+}
+
+.posts-header {
+  padding: 23px;
+  height: 9vh;
+  border-bottom: 2px solid var(--theme-color7);
+}
+
+.black-text {
+  color: var(--theme-color8);
+}
+
+.posts-area {
+  padding: 25px;
+}
+
+.text-area {
+  width: 99%;
+  padding: 2% 2% 1% 2%;
+  margin-top: 1%;
+  border-color: var(--theme-color7);
+  border-radius: 3px;
+}
+
+.submit-btn{
+  border-width: 0;
+  padding: 10px;
+  color: var(--theme-color8);
+  border-radius: 5px;
+  background-color: var(--theme-color3);
+}
+.new-post {
+ 
+}
+
+.latest-posts {
+  
+}

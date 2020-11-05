@@ -1,9 +1,8 @@
 <table>
   <thead>
     <tr>
-      <th>Photo</th>
-      <th>Fullname</th>
-      <th>Username</th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -13,13 +12,10 @@
       <tr>
         <td><%= user.Photo %></td>
         <td><%= user.FullName %></td>
-        <td><%= user.Username %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'See Profile', user %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New User', new_user_path %>

@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Text %>
-    <%= form.text_area :Text %>
+    <%= form.label :Text, "SAY SOMETHING" %>
+    <%= form.text_area :Text, class: 'text-area', placeholder: 'Compose a new post' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Post', class: 'submit-btn' %>
   </div>
 <% end %>

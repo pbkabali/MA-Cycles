@@ -1,9 +1,24 @@
 <nav class="nav">
-      <% if user_signed_in? %>
-        <%= home_nav_link(page) %>
-        <%= profile_nav_link(page) %>
-        <%= people_nav_link(page) %>
-        <h3><%= session[:username] %></h3>
-        <%= link_to 'Sign out', auth_path(session[:user_id]), method: :delete %>
-      <% end %>
-    </nav>
+  <div class='mini-profile nav-link-margin'>
+    <div class='mini-profile-top'>
+     <span><%=current_user.Photo%></span>
+     <span><%=current_user.FullName%></span>
+    </div>
+    <div class='mini-profile-bottom flex'>
+      <div class='mini-profile-following'>
+        <h2><%=current_user.following.count%></h2>
+        <p>Following</p>
+      </div>
+      <div class='mini-profile-following'>
+        <h2><%=current_user.following.count%></h2>
+        <p>Followers</p>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <%= home_nav_link(page) %>
+    <%= profile_nav_link(page) %>
+    <%= people_nav_link(page) %>
+    <%= link_to 'Sign out', auth_path(session[:user_id]), method: :delete, class: 'nav-link-margin' %>
+  <% end %>
+</nav>
