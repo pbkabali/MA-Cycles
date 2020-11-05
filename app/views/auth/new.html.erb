@@ -1,8 +1,7 @@
 <%= render 'header'%>
 <p id="notice"><%= notice %></p>
 <div class='flex signin-div'>
-  <h1>Sign in</h1>
-
+  <h1 class='lower-margin'>Sign in</h1>
   <%= form_with(url: auth_index_path, local: true) do |form| %>
     <%= form.fields_for :auth do |f| %>
       <div class="field">

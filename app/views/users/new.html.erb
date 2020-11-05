@@ -1,5 +1,7 @@
-<h1>New User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+<%= render 'header'%>
+<p id="notice"><%= notice %></p>
+<div class='flex signin-div'>
+  <h1 class='lower-margin'>Sign up</h1>
+  <%= render 'form', user: @user %>
+  <%= link_to 'Back', users_path %>
+</div>
