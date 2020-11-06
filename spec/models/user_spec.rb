@@ -67,6 +67,5 @@ RSpec.describe User, type: :model do
       u.save
       expect(u.following.empty?).to be_truthy
     end
-
   end
 end

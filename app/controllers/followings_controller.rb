@@ -8,7 +8,7 @@ class FollowingsController < ApplicationController
       redirect_to request.referrer, alert: 'Following was successfully created.'
     else
       redirect_to request.referrer, alert: 'Following was NOT created.'
-    end 
+    end
   end
 
   # DELETE /followings/1
@@ -22,9 +22,9 @@ class FollowingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_following
-      @following = helpers.current_user.following_relationships.find_by(FollowedId: params[:id])
-    end
 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_following
+    @following = helpers.current_user.following_relationships.find_by(FollowedId: params[:id])
+  end
 end

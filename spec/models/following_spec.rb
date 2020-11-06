@@ -29,7 +29,6 @@ RSpec.describe Following, type: :model do
       f = Following.new(FollowerId: u.id, FollowedId: u2.id)
       expect(f.valid?).to be_truthy
     end
-
   end
 
   context 'Association tests' do

@@ -68,7 +68,7 @@
           <div class='profile-picture'>
             <%= image_tag(avatar_url(@user.Photo), :class =>'user_avatar')%>
             <p class='author color-auto'><%=@user.FullName%></p>
-            <%if is_current_user?(@user)%>
+            <%if current_user?(@user)%>
               <button class='follow-btn'>Me</button>
             <%else%>
               <%if following?(@user)%>

@@ -16,6 +16,10 @@ The application is built with the Ruby on Rails framework and its purpose is to 
 
 ## Live Demo
 
+[Visit live app](https://salty-tor-37278.herokuapp.com/)
+
+[Watch demo here](https://www.loom.com/share/dd891092dae145b193e0309f2be024f3)
+
 
 ## Getting Started
 

@@ -1,11 +1,10 @@
 module ApplicationHelper
-
   def home_nav_link(page)
     if page.eql?('home')
       link_to('Home', opinions_path, class: 'menu-item menu-item-selected')
     else
       link_to('Home', opinions_path, class: 'menu-item')
-    end 
+    end
   end
 
   def profile_nav_link(page)
@@ -13,7 +12,7 @@ module ApplicationHelper
       link_to('Profile', user_path(session[:user_id]), class: 'menu-item menu-item-selected')
     else
       link_to('Profile', user_path(session[:user_id]), class: 'menu-item')
-    end 
+    end
   end
 
   def people_nav_link(page)
@@ -21,7 +20,7 @@ module ApplicationHelper
       link_to('People', users_path, class: 'menu-item menu-item-selected')
     else
       link_to('People', users_path, class: 'menu-item')
-    end 
+    end
   end
 
   def current_user
@@ -37,8 +36,8 @@ module ApplicationHelper
   end
 
   def avatar_url(email)
-    if email == nil or email.empty?
-      "default_avatar.jpg"
+    if email.nil? or email.empty?
+      'default_avatar.jpg'
     else
       gravatar_id = Digest::MD5.hexdigest(email.downcase)
       "http://gravatar.com/avatar/#{gravatar_id}.png"
@@ -46,7 +45,7 @@ module ApplicationHelper
   end
 
   def cover_image_url(link)
-    if link == nil or link.empty?
+    if link.nil? or link.empty?
       'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_9hWwp_Cwja6q3mq_WPDmJoSI4NEnHDaqKg&usqp=CAU'
     else
       link
@@ -57,7 +56,7 @@ module ApplicationHelper
     current_user.following.include?(user)
   end
 
-  def is_current_user?(user)
+  def current_user?(user)
     user.id == session[:user_id]
   end
 
