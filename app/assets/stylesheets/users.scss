@@ -9,10 +9,30 @@
 
 .profile-summary {
   height: 30vh;
+  border-bottom: 2px solid var(--theme-color7);
+}
+
+.profile-aside {
+  padding: 0;
+}
+
+.user-stats {
+  border-right: 2px solid var(--theme-color7);
+  flex-basis: 100%;
+  margin: 0;
+  height: 7.5vh;
+  padding-top: 5%;
+}
+
+.followers {
+  padding: 0 20px 0 20px;
 }
 
 .profile-picture {
-  text-align: center;;
+  text-align: center;
+  border-bottom: 2px solid var(--theme-color7);
+  height: 75%;
+  padding-top: 10%;
 }
 
 .cover-image-div {

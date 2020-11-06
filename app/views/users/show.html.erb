@@ -42,7 +42,6 @@
                     
                     <td>
                       <%if current_user_is_author?(opinion)%>
-                        <%= link_to 'Edit', edit_opinion_path(opinion)%>
                         <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <%end%>
                     </td>
@@ -64,34 +63,43 @@
         </div>
       </div>
 
-      <div class='who-to-follow'>
+      <div class='who-to-follow profile-aside'>
         <div class="profile-summary">
           <div class='profile-picture'>
             <%= image_tag(avatar_url(@user.Photo), :class =>'user_avatar')%>
             <p class='author color-auto'><%=@user.FullName%></p>
-            <%if following?(@user)%>
-              <%= button_to 'Unfollow', following_path(id: @user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+            <%if is_current_user?(@user)%>
+              <button class='follow-btn'>Me</button>
             <%else%>
-              <%= button_to 'Follow', followings_path(id: @user.id), method: 'post', class: 'follow-btn' %>
+              <%if following?(@user)%>
+                <%= button_to 'Unfollow', following_path(id: @user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+              <%else%>
+                <%= button_to 'Follow', followings_path(id: @user.id), method: 'post', class: 'follow-btn' %>
+              <%end%>
             <%end%>
           </div>
           <div class='flex mini-profile-top flex lower-margin'>
-            <div class='mini-profile-following'>
-              <h2><%=@opinions.count%></h2>
-              <p>Posts</p>
+            <div class='mini-profile-following user-stats'>
+              <% opinions_count = @opinions.count%>
+              <h2><%=opinions_count%></h2>
+              <p>Post<%= opinions_count == 1? '' : 's'%></p>
             </div>
-            <div class='mini-profile-following'>
+            <div class='mini-profile-following user-stats'>
               <h2><%=@user.following.count%></h2>
               <p>Following</p>
             </div>
-            <div class='mini-profile-following'>
+            <div class='mini-profile-following user-stats'>
               <h2><%=@user.followers.count%></h2>
               <p>Followers</p>
             </div>
           </div>
         </div>
-        <h2 class='lower-margin'>FOLLOWED BY</h2>
-        <%= render 'users' %>
+        <div class='followers'>
+          <div class='posts-header'>
+            <h2 class='lower-margin'>FOLLOWED BY</h2>
+          </div>
+          <%= render 'users' %>
+        </div>
       </div>
     </div>
   </div>

@@ -2,9 +2,9 @@ module ApplicationHelper
 
   def home_nav_link(page)
     if page.eql?('home')
-      link_to('Home', root_path, class: 'menu-item menu-item-selected')
+      link_to('Home', opinions_path, class: 'menu-item menu-item-selected')
     else
-      link_to('Home', root_path, class: 'menu-item')
+      link_to('Home', opinions_path, class: 'menu-item')
     end 
   end
 
@@ -55,6 +55,10 @@ module ApplicationHelper
 
   def following?(user)
     current_user.following.include?(user)
+  end
+
+  def is_current_user?(user)
+    user.id == session[:user_id]
   end
 
   def liking?(opinion)

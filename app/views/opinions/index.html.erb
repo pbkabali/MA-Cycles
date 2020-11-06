@@ -39,7 +39,6 @@
                     
                     <td>
                       <%if current_user_is_author?(opinion)%>
-                        <%= link_to 'Edit', edit_opinion_path(opinion)%>
                         <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
                       <%end%>
                     </td>
@@ -60,9 +59,10 @@
           </div>
         </div>
       </div>
-
       <div class='who-to-follow'>
-        <h2 class='lower-margin'>WHO TO FOLLOW</h2>
+        <div class='posts-header'>
+          <h2 class='lower-margin'>WHO TO FOLLOW</h2>
+        </div>
         <%= render 'users' %>
       </div>
     </div>

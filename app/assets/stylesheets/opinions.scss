@@ -12,7 +12,11 @@
   width: 25%;
   border-left: 2px solid var(--theme-color7);
   height: 150vh;
-  padding: 25px;
+  padding: 0 20px 0 20px;
+}
+
+.suggessions {
+  border-bottom: 2px solid var(--theme-color7);
 }
 
 .home-opinions {

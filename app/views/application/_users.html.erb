@@ -15,10 +15,14 @@
         <td class='author color-auto'><%= user.FullName %></td>
         <td><%= link_to 'See Profile', user %></td>
         <td>
-          <%if following?(user)%>
-            <%= button_to 'Unfollow', following_path(id: user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+          <%if is_current_user?(user)%>
+            <button class='follow-btn'>Me</button>
           <%else%>
-            <%= button_to 'Follow', followings_path(id: user.id), method: 'post', class: 'follow-btn' %>
+            <%if following?(user)%>
+              <%= button_to 'Unfollow', following_path(id: user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+            <%else%>
+              <%= button_to 'Follow', followings_path(id: user.id), method: 'post', class: 'follow-btn' %>
+            <%end%>
           <%end%>
         </td>
       </tr>

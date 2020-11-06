@@ -9,7 +9,6 @@
 
 .menu-item-selected {
   background-color: var(--theme-color1);
-  text-decoration: none;
   font-weight: bold;
 }
 
@@ -18,6 +17,8 @@
  padding: 8px;
  padding-top: 16px;
  padding-bottom: 16px;
+ color: var(--theme-color4);
+ text-decoration: none;
 }
 
 .mini-profile {

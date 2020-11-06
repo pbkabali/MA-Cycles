@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'opinions#index'
+  root 'auth#new'
   resources :likes
   resources :followings
   resources :opinions
