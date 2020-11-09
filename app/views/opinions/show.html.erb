@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Authorid:</strong>
+  <%= @opinion.AuthorId %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @opinion.Text %>
+</p>
+
+<%= link_to 'Edit', edit_opinion_path(@opinion) %> |
+<%= link_to 'Back', opinions_path %>

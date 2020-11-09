@@ -1,0 +1,70 @@
+<main class='main flex'>
+  <%= render 'nav', page: 'home' %>
+  <div class='right-pane'>
+    <%= render 'header'%>
+    <div class='flex'>
+      <div class='home-opinions'>
+      <p id="notice"><%= notice %></p>
+        <div class='posts-header'>
+          <h2>POSTS</h2>
+        </div>
+        <div class='posts-area'>
+          <div class='new-post white-area'>
+            <%= render 'opinion_form', opinion: @opinion %>
+          </div>
+          <div class='new-post white-area'>
+            <div class='latest-posts-header'>
+              <h2 class='lower-margin'>Latest posts</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @opinions.each do |opinion| %>
+                  <tr>
+                    <td><%= image_tag(avatar_url(opinion.author.Photo), :class =>'avatar')%></td>
+                    <td>
+                      <div>
+                        <p class='author color-auto'><%= opinion.author.FullName %></p>
+                        <p><%= opinion.Text %></p>
+                      </div>
+                    </td>
+                    
+                    <td>
+                      <%if current_user_is_author?(opinion)%>
+                        <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%end%>
+                    </td>
+                    <td>
+                      <% likes_count = opinion.likes.count%>
+                      <p><%= likes_count%> Like<%= likes_count == 1? '' : 's'%></p>
+                      <%if liking?(opinion)%>
+                        <%= button_to 'Dislike', like_path(id: opinion.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+                      <%else%>
+                        <%= button_to 'Like', likes_path(id: opinion.id), method: 'post', class: 'follow-btn' %>
+                      <%end%>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class='who-to-follow'>
+        <div class='posts-header'>
+          <h2 class='lower-margin'>WHO TO FOLLOW</h2>
+        </div>
+        <%= render 'users' %>
+      </div>
+    </div>
+  </div>
+</main>

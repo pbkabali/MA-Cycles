@@ -1,0 +1,17 @@
+<main class='main flex'>
+  <%= render 'nav', page: 'people' %>
+  <div class='right-pane'>
+    <%= render 'header'%>
+    <div class='flex'>
+      <div class='home-opinions'>
+      <p id="notice"><%= notice %></p>
+        <div class='posts-header'>
+          <h2>USERS</h2>
+        </div>
+        <div class='posts-area'>
+          <%= render 'users' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

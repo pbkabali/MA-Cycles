@@ -1,0 +1,15 @@
+<div class="header flex"> 
+  <div class='flex logo-div'>
+    <%= image_tag('Logo1.png', :class =>'avatar')%>
+    <p class='author color-auto'>MAC</p>
+  </div>
+  <% unless user_signed_in? %>
+    <h2 class='welcome'>Welcome ...</h2>
+  <%end%>
+  <div>
+    <p class='author color-auto tagline'>Mad About Cycles</p>
+  </div>
+  <% if user_signed_in? %>
+    <%= link_to 'Sign out', auth_path(session[:user_id]), method: :delete, class: 'nav-link-margin' %>
+  <%end%>
+</div>

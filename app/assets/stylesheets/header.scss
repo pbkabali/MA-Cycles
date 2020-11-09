@@ -1,0 +1,20 @@
+.header {
+  background-color: var(--theme-color1);
+  height: 11vh;
+  padding-left: 5px;
+  padding-right: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-div {
+  align-items: center;
+}
+
+.tagline {
+  font-style: italic;
+}
+
+.welcome {
+  color: var(--theme-color2);
+}

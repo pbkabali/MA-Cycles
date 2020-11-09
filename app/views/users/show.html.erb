@@ -1,0 +1,107 @@
+<main class='main flex'>
+  <% current_user?(@user) ? page = 'profile' : page = 'none' %>
+  <%= render 'nav', page: page %>
+  <div class='right-pane'>
+    <%= render 'header'%>
+    <div class='flex'>
+      <div class='home-opinions'>
+      <p id="notice"><%= notice %></p>
+        <div class="cover-image-div">
+          <%= image_tag(cover_image_url(@user.CoverImage), :class =>'cover-image')%>
+        </div>
+        <div class='posts-header'>
+          <h2>POSTS</h2>
+        </div>
+        <div class='posts-area'>
+          <div class='new-post white-area'>
+            <%= render 'opinion_form', opinion: @opinion %>
+          </div>
+          <div class='new-post white-area'>
+            <div class='latest-posts-header'>
+              <h2 class='lower-margin'>Latest posts</h2>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @opinions.each do |opinion| %>
+                  <tr>
+                    <td><%= image_tag(avatar_url(opinion.author.Photo), :class =>'avatar')%></td>
+                    <td>
+                      <div>
+                        <p class='author color-auto'><%= opinion.author.FullName %></p>
+                        <p><%= opinion.Text %></p>
+                      </div>
+                    </td>
+                    
+                    <td>
+                      <%if current_user_is_author?(opinion)%>
+                        <%= link_to 'Delete', opinion, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%end%>
+                    </td>
+                    <td>
+                      <% likes_count = opinion.likes.count%>
+                      <p><%= likes_count%> Like<%= likes_count == 1? '' : 's'%></p>
+                      <%if liking?(opinion)%>
+                        <%= button_to 'Dislike', like_path(id: opinion.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+                      <%else%>
+                        <%= button_to 'Like', likes_path(id: opinion.id), method: 'post', class: 'follow-btn' %>
+                      <%end%>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <div class='who-to-follow profile-aside'>
+        <div class="profile-summary">
+          <div class='profile-picture'>
+            <%= image_tag(avatar_url(@user.Photo), :class =>'profile-avatar rounded')%>
+            <p class='author color-auto'><%=@user.FullName%></p>
+            <%if current_user?(@user)%>
+              <button class='follow-btn me-btn'>Me</button>
+            <%else%>
+              <%if following?(@user)%>
+                <%= button_to 'Unfollow', following_path(id: @user.id), method: 'delete', class: 'follow-btn unfollow-btn' %>
+              <%else%>
+                <%= button_to 'Follow', followings_path(id: @user.id), method: 'post', class: 'follow-btn' %>
+              <%end%>
+            <%end%>
+          </div>
+          <div class='flex mini-profile-top flex lower-margin'>
+            <div class='mini-profile-following user-stats'>
+              <% opinions_count = @opinions.count%>
+              <h2><%=opinions_count%></h2>
+              <p>Post<%= opinions_count == 1? '' : 's'%></p>
+            </div>
+            <div class='mini-profile-following user-stats'>
+              <h2><%=@user.following.count%></h2>
+              <p>Following</p>
+            </div>
+            <div class='mini-profile-following user-stats'>
+              <h2><%=@user.followers.count%></h2>
+              <p>Followers</p>
+            </div>
+          </div>
+        </div>
+        <div class='followers'>
+          <div class='posts-header'>
+            <h2 class='lower-margin'>FOLLOWED BY</h2>
+          </div>
+          <%= render 'users' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

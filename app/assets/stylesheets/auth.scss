@@ -1,0 +1,13 @@
+// Place all the styles related to the auth controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.signin-div {
+  width: 40%;
+  text-align: center;
+  margin: 100px auto 0 auto;
+  padding: 30px 10px 30px 10px;
+  border: 2px solid var(--theme-color7);
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: space-around;
+}

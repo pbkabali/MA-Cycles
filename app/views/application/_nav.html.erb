@@ -1,0 +1,23 @@
+<nav class="nav">
+  <div class='mini-profile nav-link-margin'>
+    <div class='mini-profile-top flex'>
+     <span><%= image_tag(avatar_url(current_user.Photo), :class =>'user_avatar')%></span>
+     <span><%=current_user.FullName%></span>
+    </div>
+    <div class='mini-profile-top flex'>
+      <div class='mini-profile-following'>
+        <h2><%=current_user.following.count%></h2>
+        <p>Following</p>
+      </div>
+      <div class='mini-profile-following'>
+        <h2><%=current_user.followers.count%></h2>
+        <p>Followers</p>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <%= home_nav_link(page) %>
+    <%= profile_nav_link(page) %>
+    <%= people_nav_link(page) %>
+  <% end %>
+</nav>
