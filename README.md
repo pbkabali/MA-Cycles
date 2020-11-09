@@ -12,7 +12,7 @@ The application is built with the Ruby on Rails framework and its purpose is to 
 
 - Ruby on Rails
 - HTML5, CSS3
-- FlexBox, Grid
+- FlexBox
 
 ## Live Demo
 
@@ -27,8 +27,8 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- Ruby: 2.6.3
-- Rails: 5.2.3
+- Ruby: 2.7.0
+- Rails: 6.0.3.4
 - Postgres: >=9.5
 - Web Browser
 

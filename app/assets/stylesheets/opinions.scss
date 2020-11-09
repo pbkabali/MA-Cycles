@@ -24,6 +24,10 @@
   padding-top: 0;
 }
 
+.new-post {
+  border: 1px solid var(--theme-color7);
+}
+
 .white-area {
   background-color: var(--theme-color4);
   border-radius: 5px;
@@ -68,4 +72,8 @@
 
 .form-label {
   font-weight: bold;
+}
+
+.latest-posts-header {
+  border-bottom: 1px solid var(--theme-color7);
 }

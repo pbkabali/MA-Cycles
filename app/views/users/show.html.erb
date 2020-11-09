@@ -15,7 +15,7 @@
           <div class='new-post white-area'>
             <%= render 'opinion_form', opinion: @opinion %>
           </div>
-          <div class='latest-posts white-area'>
+          <div class='new-post white-area'>
             <div class='latest-posts-header'>
               <h2 class='lower-margin'>Latest posts</h2>
             </div>
@@ -66,7 +66,7 @@
       <div class='who-to-follow profile-aside'>
         <div class="profile-summary">
           <div class='profile-picture'>
-            <%= image_tag(avatar_url(@user.Photo), :class =>'user_avatar')%>
+            <%= image_tag(avatar_url(@user.Photo), :class =>'profile-avatar rounded')%>
             <p class='author color-auto'><%=@user.FullName%></p>
             <%if current_user?(@user)%>
               <button class='follow-btn me-btn'>Me</button>

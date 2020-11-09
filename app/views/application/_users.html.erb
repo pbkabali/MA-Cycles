@@ -11,7 +11,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= image_tag(avatar_url(user.Photo), :class =>'avatar')%></td>
+        <td><%= image_tag(avatar_url(user.Photo), :class =>'avatar rounded')%></td>
         <td class='author color-auto'><%= user.FullName %></td>
         <td><%= link_to 'See Profile', user %></td>
         <td>

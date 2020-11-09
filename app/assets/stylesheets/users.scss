@@ -5,6 +5,16 @@
 .avatar {
   width: 48px;
   height: 48px;
+  border-radius: 3px;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
 }
 
 .profile-summary {
@@ -32,7 +42,7 @@
   text-align: center;
   border-bottom: 2px solid var(--theme-color7);
   height: 75%;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .cover-image-div {
