@@ -51,8 +51,13 @@
   padding-bottom: 2px;
   border-radius: 5px;
   border-width: 0;
+  cursor: pointer;
 }
 
 .unfollow-btn {
   background-color: red;
+}
+
+.me-btn {
+  cursor: default;
 }

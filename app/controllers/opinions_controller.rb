@@ -7,14 +7,6 @@ class OpinionsController < ApplicationController
     @users = User.all - helpers.current_user.following - [helpers.current_user]
   end
 
-  def show; end
-
-  def new
-    @opinion = Opinion.new
-  end
-
-  def edit; end
-
   def create
     @opinion = Opinion.new(AuthorId: session[:user_id], Text: opinion_params[:Text])
 
@@ -24,19 +16,6 @@ class OpinionsController < ApplicationController
         format.json { render :show, status: :created, location: @opinion }
       else
         format.html { render :new }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @opinion.update(opinion_params)
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @opinion }
-      else
-        format.html { render :edit }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -11,8 +11,6 @@ class FollowingsController < ApplicationController
     end
   end
 
-  # DELETE /followings/1
-  # DELETE /followings/1.json
   def destroy
     if @following.destroy
       redirect_to request.referrer, alert: 'Following was successfully destroyed.'
@@ -23,7 +21,6 @@ class FollowingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_following
     @following = helpers.current_user.following_relationships.find_by(FollowedId: params[:id])
   end
