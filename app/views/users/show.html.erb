@@ -1,5 +1,6 @@
 <main class='main flex'>
-  <%= render 'nav', page: 'profile' %>
+  <% current_user?(@user) ? page = 'profile' : page = 'none' %>
+  <%= render 'nav', page: page %>
   <div class='right-pane'>
     <%= render 'header'%>
     <div class='flex'>
